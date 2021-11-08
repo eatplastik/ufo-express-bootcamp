@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  background-color: skyblue;
+  color: white;
+  font-family: "Space Mono", monospace;
+  background-image: url("/public/images/stars-background.jpeg");
+}
+
+a {
+  color: aliceblue;
+}
+
+a:hover {
+  color: aquamarine;
+  text-decoration-style: wavy;
+}
+
+/* ul {
+  list-style: none;
+} */
+
+.navbar {
+}
+
+.container {
+  border: 1px dashed darkturquoise;
+  min-height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5%;
+}
+
+.listings {
+  border: 1px dotted white;
+  padding: 5%;
+  margin: auto;
+  align-items: center;
+}
+
+.visitor {
+  border: 1px dotted white;
+  align-items: flex-end;
+  padding: 5%;
+  margin: auto;
+  align-items: center;
+}
+
+.sighting {
+  border: 1px dotted white;
+  padding: 5%;
+  margin: auto;
+  align-items: center;
+}
+
+.sighting-entry {
+  border: 1px dotted lime;
+  padding: 5%;
+  margin: auto;
+  align-items: center;
+}
+
+.form-container {
+  border: 1px dotted white;
+  padding: 5%;
+  margin: auto;
+  align-items: center;
+}
