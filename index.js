@@ -144,21 +144,21 @@ app.put('/sighting/:index/edit', (req, res) => {
   });
 });
 
-// Render a single sighting to delete.
-app.get('/sighting/:index/delete', (req, res) => {
-  const { index } = req.params;
+// // Render a single sighting to delete. this is not necessary
+// app.get('/sighting/:index/delete', (req, res) => {
+//   const { index } = req.params;
 
-  read('data.json', (err, data) => {
-    if (err) {
-      res.status(500).send('DB write error.');
-      return;
-    }
+//   read('data.json', (err, data) => {
+//     if (err) {
+//       res.status(500).send('DB write error.');
+//       return;
+//     }
 
-    const sighting = data.sightings[index];
-    sighting.index = index;
-    res.render('delete', sighting);
-  });
-});
+//     const sighting = data.sightings[index];
+//     sighting.index = index;
+//     res.render('delete', sighting);
+//   });
+// });
 
 // Accept a request to delete a sighting.
 app.delete('/sighting/:index/delete', (req, res) => {
