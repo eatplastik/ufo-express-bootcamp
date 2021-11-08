@@ -15,38 +15,8 @@ app.use(express.urlencoded({ extended: false }));
 // Override POST requests with query param ?_method=PUT to be PUT requests
 app.use(methodOverride('_method'));
 
-// use cookie
+// Use cookie
 app.use(cookieParser());
-
-// Save new recipe data sent via POST request from our form
-// app.post('/newsighting', (request, response) => {
-//   // Add new recipe data in request.body to recipes array in data.json.
-//   add('data.json', 'sightings', request.body, (err) => {
-//     console.log(request.body);
-//     if (err) {
-//       response.status(500).send('DB write error.');
-//       return;
-//     }
-
-//     // redirect to page
-//     read('data.json', (err, data) => {
-//       const { sightings } = data;
-//       response.redirect(`/sightings/${sightings.length - 1}`);
-//     });
-//   });
-// });
-
-// Render the form to input new recipes
-// app.get('/newsighting', (request, response) => {
-//   response.render('fileNewSighting');
-// });
-
-// app.get('/index', (request, response) => {
-//   read('data.json', (err, data) => {
-//     const { sightings } = data;
-//     response.render('index', { sightings });
-//   });
-// });
 
 // Render a form that will create a new sighting.
 app.get('/sighting', (req, res) => {
@@ -54,7 +24,6 @@ app.get('/sighting', (req, res) => {
 });
 
 // Accept a POST request to create a new sighting.
-// fix this so that it doesn't rewrite the entire json db
 app.post('/sighting', (req, res) => {
   // Add new recipe data in request.body to recipes array in data.json.
   add('data.json', 'sightings', req.body, (err) => {
@@ -205,11 +174,9 @@ app.get('/shapes', (req, res) => {
 app.get('/shapes/:shape', (req, res) => {
   const { shape } = req.params;
   const currentShape = shape.toLowerCase();
-  // const currentShapeSightings = [];
 
-  console.log('currant ', currentShape);
-  console.log('what are req param', req.params);
-  console.log('current shape ', shape);
+  // console.log('currant ', currentShape);
+  // console.log('current shape ', shape);
   read('data.json', (err, data) => {
     if (err) { console.log(err, 'readError'); }
 
@@ -230,17 +197,5 @@ app.get('/shapes/:shape', (req, res) => {
     res.render('shape', { currentShapeSightings });
   });
 });
-
-// app.get('/sighting/:index', (request, response) => {
-//   let sighting;
-//   const { index } = request.params;
-//   read('data.json', (err, data) => {
-//     if (err) { console.log(err, 'readError'); }
-
-//     sighting = data.sightings[index];
-//     // console.log('sighting', sighting);
-//     response.render('index', { sighting });
-//   });
-// });
 
 app.listen(3004);
