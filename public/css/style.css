@@ -15,13 +15,17 @@ a:hover {
   text-decoration-style: wavy;
 }
 
-.navbar a {
+.nav a {
   color: aliceblue;
 }
 
-.navbar a:hover {
+.nav a:hover {
   color: aquamarine;
-  text-decoration-style: wavy;
+  text-decoration-style: solid;
+}
+
+.all {
+  margin: 0;
 }
 
 .container {

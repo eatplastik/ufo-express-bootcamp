@@ -2,33 +2,37 @@
 
     <div class="container">
       <div class="listings">
-
         <table class="table">
-          <thead>
-          </thead>
+          <thead></thead>
           <tbody>
             <% for (let i = 0; i < listings.length; i++) { %>
             <tr>
               <!-- <th scope="row"><%= i %></th> -->
               <td><a href="/sighting/<%= i %>">Sighting <%= i %></a></td>
 
-              <td><form method="get" action="/sighting/<%= i %>/edit">
-            <input type="submit" value="Edit" />
-          </form></td>
+              <td>
+                <form method="get" action="/sighting/<%= i %>/edit">
+                  <input type="submit" value="Edit" />
+                </form>
+              </td>
 
-              <td><form action="/sighting/<%= i %>/delete?_method=DELETE" method="POST">
-            <input type="submit" value="Delete" />
-          </form></td>
-              
+              <td>
+                <form
+                  action="/sighting/<%= i %>/delete?_method=DELETE"
+                  method="POST"
+                >
+                  <input type="submit" value="Delete" />
+                </form>
+              </td>
             </tr>
-           <% } %>
+            <% } %>
           </tbody>
         </table>
 
-      <div class="visitor">
-        <p>Total aliens: <%= visitCounter %></p>
+        <div class="visitor">
+          <p>Total aliens: <%= visitCounter %></p>
+        </div>
       </div>
-    </div>
+    
   </body>
 </html>
-<%- include('footer'); -%>
